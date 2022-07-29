@@ -1,0 +1,20 @@
+export REACT_APP_ASSESSMENTS_SERVER_BASE_URL='https://assess.mynjinck.com/';
+export REACT_APP_ASSESSMENT_INITIAL_INTERVIEW='267584?newtest=Y\&lang=en';
+export REACT_APP_PATIENT_IDENTIFIER_MEDICAID_ID_SYSTEM='https://healthcare.googleapis.com/v1/projects/zanenet-njinck/locations/us-central1/datasets/dev-zanenet-njinck/fhirStores/dev-zanenet-njinck-datastore/fhir/NamingSystem/?value=medica-id';
+export REACT_APP_ASSESSMENT_TOKEN_IDENTIFIER_SYSTEM='https://healthcare.googleapis.com/v1/projects/zanenet-njinck/locations/us-east4/datasets/dev-zanenet-njinck/fhirStores/dev-zanenet-ocp-datastore/fhir/CodeSystem/?name=assesment-token';
+export REACT_APP_FHIR_INITIAL_INTERVIEW_ACTIVITY_DEFINITION_REF='ActivityDefinition/d1a199fe-97db-45b2-9de5-43cf666d4a67';
+export REACT_APP_KEYCLOAK_REDIRECT_URL='http://localhost:3000/ocp-ui-api/testlogin'
+export REACT_APP_KEYCLOAK_LOGOUT_URL='https://iam.mynjinck.com/auth/realms/njinck-dev/protocol/openid-connect/logout'
+export REACT_APP_BASE_FHIR_URL='https://healthcare.googleapis.com/v1/projects/zanenet-njinck/locations/us-central1/datasets/dev-zanenet-njinck/fhirStores/dev-ocp-datastore/fhir'
+export REACT_APP_ENV_LABEL='Local env'
+export REACT_APP_ORG_ADMIN_DASHBOARD_HOST_URL='https://tsm-zanenet.nicheaimlabs.com/';
+export REACT_APP_ORG_ADMIN_DASHBOARD_VIEW_NAME='STAGE-ODH-CIMACMTReport\&#47;STAGE-ODH-CIMReport';
+export REACT_APP_CARE_MANAGER_DASHBOARD_HOST_URL='https://tsm-zanenet.nicheaimlabs.com/';
+export REACT_APP_CARE_MANAGER_DASHBOARD_VIEW_NAME='STAGE-ODH-OrgAdminReport\&#47;STAGE-ODH-OrgAdminReport';
+export REACT_APP_CARE_COORDINATOR_DASHBOARD_HOST_URL='https://tsm-zanenet.nicheaimlabs.com/';
+export REACT_APP_CARE_COORDINATOR_DASHBOARD_VIEW_NAME='STAGE-ODH-ACMTReport\&#47;STAGEACMTDashboard';
+export REACT_APP_MAX_INACTIVITY_SECONDS='180';
+export REACT_APP_TASK_DEFAULT_ACTIVITY_DEFINITION_REF='ActivityDefinition/57be026c-b5cd-480f-b0fd-a963818ef307';
+
+echo "printenv | grep REACT_APP";
+printenv | grep REACT_APP;

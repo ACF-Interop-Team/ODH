@@ -1,0 +1,33 @@
+server:
+  port: 8445
+logging:
+  file: /java/OCP_LOGS/smart-core/smart-core.log
+info:
+  component: Omnibus Care Plan - SMART on FHIR Core Service
+hystrix.command.default.execution.timeout.enabled: false
+ribbon:
+  ReadTimeout: 50000
+spring:
+  redis:
+    host: ${REDIS_HOST}
+smart-core:
+  context-initializer: http://localhost:3000/ocp-ui/smart-context
+  oauth2: http://localhost:8080/uaa
+  oauth2-authorize: ${smart-core.oauth2}/oauth/authorize
+  oauth2-token: ${smart-core.oauth2}/oauth/token
+  public-client-secret: changeit
+  fhir: http://localhost:8080/fhir/baseDstu3
+security:
+  oauth2:
+    client:
+      client-id: smart-core
+      client-secret: changeit
+      access-token-uri: ${smart-core.oauth2-token}
+  basic:
+    enabled: false
+---
+# updates configuration for docker environment
+spring.profiles: docker
+spring:
+  redis:
+    host: ${REDIS_HOST}

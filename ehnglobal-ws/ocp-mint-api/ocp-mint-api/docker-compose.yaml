@@ -1,0 +1,7 @@
+version: "3"
+services:
+  ocp-mint-api:
+    image: bhits/ocp-mint-api:1.0.0
+    build:
+      context: ./
+

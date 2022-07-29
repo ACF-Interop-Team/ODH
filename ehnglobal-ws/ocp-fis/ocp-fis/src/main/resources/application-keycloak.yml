@@ -1,0 +1,4 @@
+security:
+  oauth2:
+    client:
+      accessTokenUri: https://iam.mynjinck.com/keycloak/oauth/token

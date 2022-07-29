@@ -1,0 +1,27 @@
+server:
+  port: 8449
+logging:
+  file: /java/OCP_LOGS/smart-gateway/smart-gateway.log
+info:
+  component: Omnibus Care Plan - SMART on FHIR Gateway
+hystrix.command.default.execution.timeout.enabled: false
+ribbon:
+  ConnectTimeout: 30000
+  ReadTimeout: 990000
+spring:
+  redis:
+    host: dockerhost
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+  routes:
+    smart-core:
+      path: /**
+      # Override Zuul default:
+      sensitiveHeaders: Cookie,Set-Cookie
+security:
+  oauth2:
+    client:
+      id: smart-gateway

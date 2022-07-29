@@ -1,0 +1,56 @@
+server:
+  port: 8455
+logging:
+  file:
+    name: /java/OCP_LOGS/ocp-mint-api/ocp-mint-api.log
+  level:
+    gov.samhsa.ocp.ocpmintapi.*: TRACE
+    org.springframework.security: INFO
+info:
+  component: Omnibus Care Plan - MINT Integration Service
+hystrix.command.default.execution.timeout.enabled: false
+ribbon:
+  ReadTimeout: 50000
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+spring.security:
+  oauth2:
+    client:
+      registration:
+        mint:
+          clientId: Omnibus-Care-Plan
+          clientSecret: fa875471-6ff5-447f-aacb-2acb9b2a5b5a
+          authorizationGrantType: client_credentials
+      provider:
+        mint:
+          tokenUri: https://mint.stage-ehnusa.net/auth/token
+  basic:
+    enabled: false
+ocp-mint-api:
+  mint:
+    enabled: true
+    serverUrl: https://mint.stage-ehnusa.net/ihe/patients
+    headers:
+      - name: x-ehn-mint-user-id
+        value: reference__Omnibus_Care_Plan
+      - name: x-ehn-tenant-key
+        value: reference
+      - name: x-ehn-organization-name
+        value: Prevention Link Stage
+      - name: Content-Type
+        value: application/json
+    mrn:
+      prefix: OCP-DEV
+    defaultOrgNameHeader: x-ehn-organization-name
+    defaultOrgNameValue: Prevention Link Stage
+
+---
+# updates configuration for docker environment
+spring.profiles: docker
+spring.security:
+  oauth2:
+    client:
+      provider:
+        mint:
+          tokenUri: https://mint.stage-ehnusa.net/auth/token
