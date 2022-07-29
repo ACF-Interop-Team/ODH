@@ -1,7 +1,3 @@
-
-#fhir-notes.txt from OCP dev loptop
-
-
 FHIR4 Server Details:
 
 Github Location : https://github.com/hapifhir/hapi-fhir-jpaserver-starter
